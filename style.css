@@ -1,0 +1,185 @@
+@font-face {
+  font-family: "default";
+  src: url("./default.ttf");
+}
+
+@font-face {
+  font-family: "mono";
+  src: url("./mono.ttf");
+}
+
+*,
+*::before,
+*::after {
+  font-family: "default", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f5f0;
+  background:
+    radial-gradient(
+      circle,
+      transparent 20%,
+      #f9f5f0 20%,
+      #f9f5f0 80%,
+      transparent 80%,
+      transparent
+    ),
+    radial-gradient(
+        circle,
+        transparent 20%,
+        #f9f5f0 20%,
+        #f9f5f0 80%,
+        transparent 80%,
+        transparent
+      )
+      25px 25px,
+    linear-gradient(#e5e4e3 2px, transparent 2px) 0 -1px,
+    linear-gradient(90deg, #e5e4e3 2px, #f9f5f0 2px) -1px 0;
+  background-size:
+    50px 50px,
+    50px 50px,
+    25px 25px,
+    25px 25px;
+}
+
+main {
+  min-height: 100vh;
+  color: #000;
+  font-size: 1.5rem;
+  width: 50.4rem;
+  padding: 2rem 1.5rem 1rem 1.5rem;
+}
+
+.word {
+  font-size: 2rem;
+  word-break: break-all;
+  padding-bottom: 1rem;
+  color: #000;
+  text-align: center;
+}
+
+button.speak {
+  background: #4e71ff;
+  width: 100%;
+  border: none;
+  border-radius: 1rem;
+  padding: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #000;
+  gap: 0.5rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  transition: background 0.2s ease-in-out;
+
+  &:hover {
+    background: #4160dd;
+
+    & img {
+      opacity: 0.8;
+    }
+
+    & div {
+      color: #ffffffc9;
+    }
+  }
+
+  & img {
+    width: 2.5rem;
+    aspect-ratio: 1/1;
+  }
+
+  & div {
+    color: #fff;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+.phonetic {
+  text-align: center;
+  margin-bottom: 2rem;
+  word-break: break-all;
+}
+
+.meanings {
+  .group {
+    font-size: 1.3rem;
+    padding-bottom: 2rem;
+
+    .partofspeech {
+      font-size: 1.7rem;
+      font-family: "mono", monospace;
+      margin-bottom: 1rem;
+    }
+
+    .defexp_group {
+      margin-bottom: 1rem;
+    }
+
+    .definition {
+      .number {
+        font-family: "mono", monospace;
+        font-weight: 500;
+        font-size: 1.2rem;
+      }
+    }
+
+    .example {
+      margin-top: 0.5rem;
+      opacity: 0.7;
+    }
+
+    .synonyms,
+    .antonyms {
+      opacity: 0.7;
+      .title {
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+/* Loader */
+
+.loader {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.loader:after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #4160dd;
+  border-color: #4160dd transparent;
+  animation: 1.2s linear infinite loader;
+}
+
+/* Keyframes */
+
+@keyframes loader {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
